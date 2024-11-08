@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Inspired by Romeo & Juliet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="classical_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <h1 class="title">O, speak again, bright angel!</h1>
+        <p class="intro">For thou art as glorious to this night, being o'er my head...</p>
+        <div class="buttons">
+            <button onclick="showMessage1()">Reveal First Message</button>
+            <button onclick="showMessage2()">Reveal Second Message</button>
+            <button onclick="showMessage3()">Reveal Final Message</button>
+        </div>
+        <div class="messages">
+            <p class="message hidden" id="loveMessage1">
+                <img src="balcony.jpg" alt="Balcony Scene" class="love-image">
+                "But, soft! what light through yonder window breaks? It is the east, and Juliet is the sun."
+            </p>
+            <p class="message hidden" id="loveMessage2">
+                <img src="rose.jpg" alt="Rose" class="love-image">
+                "A rose by any other name would smell as sweet."
+            </p>
+            <p class="message hidden" id="loveMessage3">
+                <img src="stars.jpg" alt="Stars" class="love-image">
+                "My bounty is as boundless as the sea, My love as deep; the more I give to thee, The more I have, for both are infinite."
+            </p>
+        </div>
+    </div>
+    <div id="heartContainer"></div>
+
+    <script>
+        window.onload = function() {
+            let music = document.getElementById("backgroundMusic");
+            music.play();
+            createHearts();
+        };
+
+        function showMessage1() {
+            let message = document.getElementById("loveMessage1");
+            message.classList.remove("hidden");
+        }
+
+        function showMessage2() {
+            let message = document.getElementById("loveMessage2");
+            message.classList.remove("hidden");
+        }
+
+        function showMessage3() {
+            let message = document.getElementById("loveMessage3");
+            message.classList.remove("hidden");
+        }
+
+        function createHearts() {
+            const heartContainer = document.getElementById("heartContainer");
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                heartContainer.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
